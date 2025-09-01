@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hybrid Anime Recommender</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Permanent+Marker&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Hero Section (Banner shown ONCE) -->
+  <header class="hero">
+    <div class="overlay"></div>
+    <div class="hero-content">
+      <h1>Anime Recommender</h1>
+      <p>Discover your next favorite anime, tailored just for you ✨</p>
+    </div>
+  </header>
+
+  <!-- Input Section -->
+  <section class="input-section">
+    <form method="POST">
+      <label for="userID">Enter Your User ID</label>
+      <input type="number" name="userID" id="userID" placeholder="e.g. 11880" required>
+      <button type="submit">Get Recommendations</button>
+    </form>
+  </section>
+
+  <!-- Recommendations -->
+  {% if recommendations %}
+  <section class="recommendations">
+    <h2>Your Recommendations</h2>
+    <div class="card-container">
+      {% for rec in recommendations %}
+      <div class="card">
+        <div class="card-content">
+          <h3>{{ rec }}</h3>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  <!-- Footer -->
+  <footer>
+    <p>Made with ❤️ for anime fans worldwide | Anime Recommender</p>
+  </footer>
+</body>
+</html>

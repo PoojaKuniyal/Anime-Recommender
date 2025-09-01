@@ -143,7 +143,7 @@ class DataProcessor:
                        name = df[df.anime_id == anime_id].Name.values[0]
                 except:
                     print("Error")
-                    return name
+                return name
             
             df["anime_id"] = df["MAL_ID"]
             df["eng_version"] = df["English name"]
@@ -153,7 +153,7 @@ class DataProcessor:
             kind='quicksort', na_position='last' )
 
             df = df[["anime_id", "eng_version","Score","Genres","Episodes","Type",
-                    "Members","Premiered"]]
+                    "Premiered","Members"]]
             
 
             df.to_csv(DF, index=False)
